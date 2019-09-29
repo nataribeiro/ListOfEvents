@@ -1,8 +1,10 @@
 package br.com.natanaelribeiro.events.views.acitivities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
@@ -73,19 +75,29 @@ class ListOfEventsActivity : AppCompatActivity() {
 
         when (command) {
 
-            is ListOfEventsViewModel.Command.ShowEventDetails -> {
-
-            }
-
             is ListOfEventsViewModel.Command.ShowErrorLoadingList -> {
 
+                AlertDialog.Builder(this@ListOfEventsActivity)
+                    .setTitle(R.string.event_details_alert_title)
+                    .setMessage(R.string.event_details_alert_message)
+                    .setPositiveButton(android.R.string.yes) { _, _ ->
+                        listOfEventsViewModel.getEvents()
+                    }
+                    .setNegativeButton(android.R.string.no) { _, _ ->
+                        finish()
+                    }
+                    .show()
             }
 
             is ListOfEventsViewModel.Command.ShowListOfEvents -> {
 
                 val eventAdapter = EventAdapter(command.eventsList, this@ListOfEventsActivity) { clickedEvent ->
 
-                    Snackbar.make(rootLayout, clickedEvent.title, Snackbar.LENGTH_SHORT).show()
+                    val intent = Intent(this@ListOfEventsActivity, EventDetailsActivity::class.java)
+                    intent.putExtra(EventDetailsActivity.EXTRA_EVENT_ID, clickedEvent.id)
+                    intent.putExtra(EventDetailsActivity.EXTRA_EVENT_TITLE, clickedEvent.title)
+
+                    startActivity(intent)
                 }
 
                 eventsRecyclerView.layoutManager = LinearLayoutManager(this@ListOfEventsActivity)

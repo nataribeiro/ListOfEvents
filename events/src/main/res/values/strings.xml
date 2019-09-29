@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Events</string>
     <string name="list_of_events_title">Veja os próximos eventos!</string>
+    <string name="list_of_events_alert_title">Eventos</string>
+    <string name="list_of_events_alert_message">Não conseguimos carregar os eventos, tentar novamente?</string>
+    <string name="event_details_checkin_title_text">Faça Check-in</string>
+    <string name="event_details_name_hint">Insira seu nome</string>
+    <string name="event_details_email_hint">Insira seu e-mail</string>
+    <string name="event_details_checkin_button_text">Fazer check-in</string>
+    <string name="event_details_name_error_message">Preencha o seu nome</string>
+    <string name="event_details_email_error_message">Informe um e-mail válido</string>
+    <string name="event_details_successful_checkin_message">Check-in feito com sucesso!</string>
+    <string name="event_details_error_doing_checkin_message">Não foi possível realizar o check-in, por favor tente novamente</string>
+    <string name="event_details_alert_title">Detalhes do Evento</string>
+    <string name="event_details_alert_message">Não conseguimos carregar os detalhes do evento, por favor tente novamente mais tarde</string>
 </resources>

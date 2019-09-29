@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="shrine_tall_toolbar_height">320dp</dimen>
+    <dimen name="shrine_toolbar_image_offset_top">48dp</dimen>
+    <dimen name="shrine_toolbar_offset_start">124dp</dimen>
+    <dimen name="shrine_toolbar_offset_top">124dp</dimen>
+
+</resources>

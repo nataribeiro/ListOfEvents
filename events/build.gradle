@@ -34,6 +34,7 @@ dependencies {
     implementation deps.android.support.design
     implementation deps.coroutines.android
     implementation deps.coroutines.core
+    implementation deps.googlePlayServices.maps
     implementation deps.koin.androidViewModel
     implementation deps.koin.core
     implementation deps.kotlin.stdlib.jdk

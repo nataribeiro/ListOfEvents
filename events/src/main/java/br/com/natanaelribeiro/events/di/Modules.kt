@@ -1,5 +1,6 @@
 package br.com.natanaelribeiro.events.di
 
+import br.com.natanaelribeiro.events.viewmodels.EventDetailsViewModel
 import br.com.natanaelribeiro.events.viewmodels.ListOfEventsViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -10,6 +11,14 @@ val listOfEventsViewModelModule: Module = module {
 
     viewModel {
         ListOfEventsViewModel(
+            eventsRepository = get(),
+            coroutineContext = Dispatchers.IO,
+            commandProvider = get()
+        )
+    }
+
+    viewModel {
+        EventDetailsViewModel(
             eventsRepository = get(),
             coroutineContext = Dispatchers.IO,
             commandProvider = get()

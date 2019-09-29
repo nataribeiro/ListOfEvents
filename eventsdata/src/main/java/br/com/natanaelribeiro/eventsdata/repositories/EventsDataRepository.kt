@@ -16,6 +16,6 @@ class EventsDataRepository(
         eventsRemoteDataSource.getEventDetails(eventId)
 
     override fun checkIn(eventId: String, name: String, email: String): Deferred<Response<Void>> {
-        return checkIn(eventId, name, email)
+        return eventsRemoteDataSource.checkIn(eventId, name, email)
     }
 }

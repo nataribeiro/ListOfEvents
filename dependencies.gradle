@@ -16,6 +16,7 @@ ext.versions = [
         'coroutinesVersion':  '1.2.2',
         'coroutinesAdapterVersion': '0.9.2',
         'extendedJUnitVersion': '1.1.0',
+        'googlePlayServicesVersion': '17.0.0',
         'gsonVersion': '2.8.5',
         'junitVersion': '4.12',
         'koinVersion': '2.0.1',
@@ -46,6 +47,9 @@ ext.deps = [
         ],
         'coroutinesAdapter': [
                 'core': "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.coroutinesAdapterVersion}"
+        ],
+        'googlePlayServices': [
+                'maps': "com.google.android.gms:play-services-maps:${versions.googlePlayServicesVersion}"
         ],
         'gson': [
                 'core': "com.google.code.gson:gson:${versions.gsonVersion}"

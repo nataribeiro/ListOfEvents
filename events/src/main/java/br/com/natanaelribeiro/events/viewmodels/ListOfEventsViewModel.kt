@@ -26,8 +26,6 @@ class ListOfEventsViewModel(
     )
 
     sealed class Command: GenericCommand() {
-
-        class ShowEventDetails(val eventId: String): Command()
         object ShowErrorLoadingList: Command()
         class ShowListOfEvents(val eventsList: List<Event>): Command()
     }
