@@ -28,6 +28,15 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <ProgressBar
+                android:id="@+id/loadingImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/eventImageView"
+                app:layout_constraintEnd_toEndOf="@+id/eventImageView"
+                app:layout_constraintStart_toStartOf="@+id/eventImageView"
+                app:layout_constraintTop_toTopOf="@+id/eventImageView" />
+
             <TextView
                 android:id="@+id/eventTitleTextView"
                 android:textStyle="bold"

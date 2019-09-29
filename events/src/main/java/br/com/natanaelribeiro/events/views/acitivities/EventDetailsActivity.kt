@@ -26,9 +26,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event_details.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.Exception
 
 class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -186,7 +188,9 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             is EventDetailsViewModel.Command.ShowSuccessCheckInMessage -> {
 
-                Snackbar.make(rootLayout, getString(R.string.event_details_successful_checkin_message), Snackbar.LENGTH_SHORT).show()
+                nameEditText.setText("")
+                emailEditText.setText("")
+                Snackbar.make(rootLayout, getString(R.string.event_details_successful_checkin_message), Snackbar.LENGTH_LONG).show()
             }
 
             is EventDetailsViewModel.Command.ShowErrorLoadingEvent -> {
@@ -202,7 +206,7 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             is EventDetailsViewModel.Command.ShowErrorDoingCheckIn -> {
 
-                Snackbar.make(rootLayout, getString(R.string.event_details_error_doing_checkin_message), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(rootLayout, getString(R.string.event_details_error_doing_checkin_message), Snackbar.LENGTH_LONG).show()
             }
         }
     }
@@ -216,11 +220,20 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val httpsImageUrl = event.imageUrl.replace("http", "https")
 
+        eventImageLoadingView.visibility = View.VISIBLE
+
         Picasso.get()
             .load(httpsImageUrl)
             .error(R.drawable.ic_unavailable_image_clean)
             .fit()
-            .into(eventImageView)
+            .into(eventImageView, object : Callback {
+                override fun onSuccess() {
+                    eventImageLoadingView.visibility = View.GONE
+                }
+                override fun onError(e: Exception?) {
+                    eventImageLoadingView.visibility = View.GONE
+                }
+            })
 
         eventDescriptionTextView.text = event.description
         eventPriceTextView.text = event.price.toFormattedPrice()

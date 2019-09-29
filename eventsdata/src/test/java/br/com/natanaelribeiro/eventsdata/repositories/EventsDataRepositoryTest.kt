@@ -165,5 +165,29 @@ class EventsDataRepositoryTest {
         assertEquals(expectedEventDetailResponse, eventDetailResponse)
     }
 
+    @Test fun `Check in, when it is requested, then return deferred operation status`() {
 
+        // ARRANGE
+
+        val EVENT_ID = "1"
+        val NAME = "Nome Sobrenome"
+        val EMAIL = "email@sicredi.com.br"
+
+        val expectedSuccessfulResponse = Response.success<Void>(null)
+
+        val expectedDeferredSuccessfulResponse = CompletableDeferred(expectedSuccessfulResponse)
+
+        whenever(eventsRemoteDataSourceMock.checkIn(EVENT_ID, NAME, EMAIL))
+            .thenReturn(expectedDeferredSuccessfulResponse)
+
+        // ACT
+
+        val successfulResponse = runBlocking {
+            eventsRepository.checkIn(EVENT_ID, NAME, EMAIL).await()
+        }
+
+        // ASSERT
+
+        assertEquals(expectedSuccessfulResponse, successfulResponse)
+    }
 }

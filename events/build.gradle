@@ -40,7 +40,10 @@ dependencies {
     implementation deps.kotlin.stdlib.jdk
     implementation deps.picasso.core
 
+    testImplementation deps.android.arch.test.core
     testImplementation deps.junit.core
+    testImplementation deps.kotlin.test.jdk
+    testImplementation deps.mockitoKotlin.core
 
     androidTestImplementation deps.android.test.runner
 }

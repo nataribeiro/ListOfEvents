@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.natanaelribeiro.basefeature.utils.SystemUtil
@@ -13,8 +14,10 @@ import br.com.natanaelribeiro.basefeature.utils.toFormattedPrice
 import br.com.natanaelribeiro.events.R
 import br.com.natanaelribeiro.events.customviews.TopRoundedTransformation
 import br.com.natanaelribeiro.eventsdata.models.Event
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.event_item.view.*
+import java.lang.Exception
 
 class EventAdapter(
     private var events: List<Event>,
@@ -40,10 +43,16 @@ class EventAdapter(
         Picasso.get()
             .load(httpsImageUrl)
             .transform(transformation)
-            .placeholder(R.drawable.ic_image_placeholder)
             .error(R.drawable.ic_unavailable_image)
             .fit()
-            .into(holder.eventImageView)
+            .into(holder.eventImageView, object : Callback {
+                override fun onSuccess() {
+                    holder.loadingImage.visibility = View.GONE
+                }
+                override fun onError(e: Exception?) {
+                    holder.loadingImage.visibility = View.GONE
+                }
+            })
 
         holder.eventTitleTextView.text = event.title
         holder.eventPriceTextView.text = event.price.toFormattedPrice()
@@ -60,5 +69,6 @@ class EventAdapter(
         val eventPriceTextView: TextView = view.eventPriceTextView
         val eventDateTextView: TextView = view.eventDateTextView
         val eventCardView: View = view.eventCardView
+        val loadingImage: ProgressBar = view.loadingImage
     }
 }
