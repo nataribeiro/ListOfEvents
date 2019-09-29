@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Events</string>
+    <string name="list_of_events_title">Veja os próximos eventos!</string>
 </resources>

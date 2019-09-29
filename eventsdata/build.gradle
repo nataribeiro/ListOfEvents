@@ -34,7 +34,7 @@ dependencies {
     implementation deps.koin.core
     implementation deps.kotlin.stdlib.jdk
     implementation deps.gson.core
-    implementation deps.retrofit.core
+    api deps.retrofit.core
 
     testImplementation deps.junit.core
     testImplementation deps.kotlin.test.jdk

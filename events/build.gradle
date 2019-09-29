@@ -27,10 +27,17 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':eventsdata')
+    implementation project(':basefeature')
 
     implementation deps.android.support.appCompat
     implementation deps.android.support.constraintLayout
+    implementation deps.android.support.design
+    implementation deps.coroutines.android
+    implementation deps.coroutines.core
+    implementation deps.koin.androidViewModel
+    implementation deps.koin.core
     implementation deps.kotlin.stdlib.jdk
+    implementation deps.picasso.core
 
     testImplementation deps.junit.core
 

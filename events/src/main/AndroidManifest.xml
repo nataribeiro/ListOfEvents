@@ -1,2 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.natanaelribeiro.events" />
+    package="br.com.natanaelribeiro.events">
+
+    <application>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".views.acitivities.ListOfEventsActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
