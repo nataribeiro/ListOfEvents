@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion buildConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode appVersion.versionCode
+        versionName appVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':eventsdata')
+    implementation project(':basefeature')
+
+    implementation deps.android.support.appCompat
+    implementation deps.android.support.constraintLayout
+    implementation deps.android.support.design
+    implementation deps.coroutines.android
+    implementation deps.coroutines.core
+    implementation deps.googlePlayServices.maps
+    implementation deps.koin.androidViewModel
+    implementation deps.koin.core
+    implementation deps.kotlin.stdlib.jdk
+    implementation deps.picasso.core
+
+    testImplementation deps.android.arch.test.core
+    testImplementation deps.junit.core
+    testImplementation deps.kotlin.test.jdk
+    testImplementation deps.mockitoKotlin.core
+
+    androidTestImplementation deps.android.test.runner
+}

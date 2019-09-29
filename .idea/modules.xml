@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ListOfEvents.iml" filepath="$PROJECT_DIR$/ListOfEvents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basefeature/basefeature.iml" filepath="$PROJECT_DIR$/basefeature/basefeature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coredata/coredata.iml" filepath="$PROJECT_DIR$/coredata/coredata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/events/events.iml" filepath="$PROJECT_DIR$/events/events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eventsdata/eventsdata.iml" filepath="$PROJECT_DIR$/eventsdata/eventsdata.iml" />
+    </modules>
+  </component>
+</project>
