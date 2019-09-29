@@ -1,6 +1,7 @@
 package br.com.natanaelribeiro.basefeature.utils
 
 import android.util.Patterns
+import androidx.core.util.PatternsCompat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,5 +32,5 @@ fun Long.toFormattedDate(format: String): String {
 
 fun String.isEmail(): Boolean {
 
-    return this.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    return this.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(this).matches()
 }

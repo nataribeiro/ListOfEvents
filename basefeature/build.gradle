@@ -32,6 +32,7 @@ dependencies {
     implementation deps.kotlin.stdlib.jdk
 
     testImplementation deps.junit.core
+    testImplementation deps.kotlin.test.jdk
 
     androidTestImplementation deps.android.test.runner
 }
